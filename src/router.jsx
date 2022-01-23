@@ -1,9 +1,10 @@
 import React, { Fragment, lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import LoadingScreen from './components/LoadingScreen';
 import MainLayout from './layouts/MainLayout';
 
 export const renderRoutes = (routes = []) => (
-  <Suspense fallback={null}>
+  <Suspense fallback={<LoadingScreen/>}>
     <Switch>
       {
         routes.map((route, i) => {

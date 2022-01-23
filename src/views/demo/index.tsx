@@ -2,10 +2,8 @@ import { Button } from '@mui/material';
 import { useSnackbar } from 'notistack';
 import React from 'react';
 
-
-
 const Demo = () => {
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar()
+  const { enqueueSnackbar } = useSnackbar()
   const opensnackbar= () => {
     enqueueSnackbar("aaaaaaa", { 
       variant: 'success',
