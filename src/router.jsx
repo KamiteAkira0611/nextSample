@@ -1,5 +1,6 @@
 import React, { Fragment, lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import MainLayout from './layouts/MainLayout';
 
 export const renderRoutes = (routes = []) => (
   <Suspense fallback={null}>
@@ -33,9 +34,15 @@ export const renderRoutes = (routes = []) => (
 
 const routes = [
   {
-    exact: true,
-    path: '/',
-    component: lazy(() => import("./views/homeView"))
+    path: '*',
+    layout: MainLayout,
+    routes: [
+      {
+        exact: true,
+        path: '/',
+        component: lazy(() => import("./views/homeView"))
+      },
+    ]
   },
   // {
   //   path: '*',

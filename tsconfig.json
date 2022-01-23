@@ -20,12 +20,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"],
-      "@/modules/*": ["src/modules/*"],
-      "@/pages/*": ["src/pages/*"]
-    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/index.jsx", "src/App.jsx", "src/router.jsx"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }
