@@ -39,6 +39,11 @@ const routes = [
     routes: [
       {
         exact: true,
+        path: '/demo',
+        component: lazy(() => import("./views/demo"))
+      },
+      {
+        exact: true,
         path: '/',
         component: lazy(() => import("./views/homeView"))
       },

@@ -3,7 +3,9 @@ import React from 'react';
 
 const Demo = () => {
   return <div>
-    <Button>hello</Button>
+    <Button variant="text">Text</Button>
+    <Button variant="contained">Contained</Button>
+    <Button variant="outlined">Outlined</Button>
   </div>;
 };
 
