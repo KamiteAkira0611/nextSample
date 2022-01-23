@@ -1,5 +1,4 @@
 import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
-import React from 'react';
 
 const Navbar = () => {
   return (
