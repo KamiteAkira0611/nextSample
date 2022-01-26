@@ -1,7 +1,8 @@
+import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import Navbar from "./navbar";
 
 type Props = {
-  children: any
+  children: ReactJSXElement
 }
 
 const MainLayout = (props: Props) => {
