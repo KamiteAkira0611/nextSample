@@ -11,7 +11,7 @@ const Navbar = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             SAMANSA
           </Typography>
-          <Button color="inherit" onClick={() => logout()}>logout</Button>
+          <Button color="inherit" onClick={() => logout({returnTo: window.location.origin})}>logout</Button>
         </Toolbar>
       </AppBar>
     </Box>

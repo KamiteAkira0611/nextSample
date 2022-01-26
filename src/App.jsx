@@ -6,7 +6,7 @@ import { SnackbarProvider } from 'notistack';
 import GoogleAnalytics from './components/GoogleAnalytics';
 import { createAppTheme } from './lib/mui/theme';
 import routes, { renderRoutes } from './router';
-import AuthProvider from './lib/auth/AuthProvider';
+import AuthProvider from './lib/auth';
 
 const history = createBrowserHistory()
 
