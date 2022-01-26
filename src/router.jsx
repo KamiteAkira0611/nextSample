@@ -1,5 +1,6 @@
-import React, { Fragment, lazy, Suspense } from 'react';
+import { Fragment, lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import AuthGuard from './components/AuthGuard';
 import LoadingScreen from './components/LoadingScreen';
 import MainLayout from './layouts/MainLayout';
 
@@ -36,6 +37,7 @@ export const renderRoutes = (routes = []) => (
 const routes = [
   {
     path: '*',
+    guard: AuthGuard,
     layout: MainLayout,
     routes: [
       {
