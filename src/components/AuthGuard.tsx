@@ -7,9 +7,8 @@ type Props = {
   children: ReactJSXElement
 }
 
-
 const AuthGuard = (props: Props) => {
-  const { isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
+  const { user, isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
   
   if(isLoading){
     return <LoadingScreen/>
@@ -18,6 +17,8 @@ const AuthGuard = (props: Props) => {
     loginWithRedirect()
     return null
   }
+  console.log(user);
+  
 
   return <>{props.children}</>;
 };

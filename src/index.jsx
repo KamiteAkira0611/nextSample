@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import "src/lib/nprogress/style.css"
+import "src/packages/nprogress/style.css"
 import ReactDOM from 'react-dom';
 import App from './App';
 

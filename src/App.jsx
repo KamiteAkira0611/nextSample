@@ -3,9 +3,9 @@ import { ThemeProvider } from '@mui/system';
 import { BrowserRouter, Router } from 'react-router-dom';
 import { SnackbarProvider } from 'notistack';
 import GoogleAnalytics from './components/GoogleAnalytics';
-import { createAppTheme } from './lib/mui/theme';
+import { createAppTheme } from './packages/mui/theme';
 import routes, { renderRoutes } from './router';
-import AuthProvider from './lib/auth/provider';
+import AuthProvider from './packages/auth/provider';
 import GlobalStyles from './components/GrobalStyles';
 
 const config = {
