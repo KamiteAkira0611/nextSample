@@ -1,14 +1,12 @@
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/system';
-import { createBrowserHistory } from 'history';
-import { Router } from 'react-router-dom';
+import { BrowserRouter, Router } from 'react-router-dom';
 import { SnackbarProvider } from 'notistack';
 import GoogleAnalytics from './components/GoogleAnalytics';
 import { createAppTheme } from './lib/mui/theme';
 import routes, { renderRoutes } from './router';
 import AuthProvider from './lib/auth/provider';
-
-const history = createBrowserHistory()
+import GlobalStyles from './components/GrobalStyles';
 
 const config = {
   theme: "DARK"
@@ -22,13 +20,14 @@ function App() {
         dense
         maxSnack={3}
       >
-        <Router history={history}>
+        <BrowserRouter>
           <AuthProvider>
+            <GlobalStyles/>
             <CssBaseline />
             <GoogleAnalytics />
             {renderRoutes(routes)}
           </AuthProvider>
-        </Router>
+        </BrowserRouter>
       </SnackbarProvider>
     </ThemeProvider>
   );

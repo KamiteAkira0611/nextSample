@@ -1,4 +1,5 @@
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
+import { Link } from "react-router-dom";
 import Navbar from "./navbar";
 
 type Props = {

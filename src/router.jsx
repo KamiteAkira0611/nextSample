@@ -1,5 +1,5 @@
 import { Fragment, lazy, Suspense } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import AuthGuard from './components/AuthGuard';
 import LoadingScreen from './components/LoadingScreen';
 import MainLayout from './layouts/MainLayout';
@@ -13,11 +13,13 @@ export const renderRoutes = (routes = []) => (
           const Guard = route.guard || Fragment;
           const Layout = route.layout || Fragment;
           const Component = route.component;
+          console.log(route);
 
           return (
             <Route
               key={i}
               path={route.path}
+              exact={route.exact}
               render={(props) => (
                 <Guard>
                   <Layout>
@@ -37,14 +39,15 @@ export const renderRoutes = (routes = []) => (
 
 const routes = [
   {
-    path: '/auth',
+    exact: true,
+    path: '/404',
+    component: lazy(() => import('src/views/homeView'))
+  },
+  {
+    exact: true,
+    path: '/auth/new',
     layout: AuthLayout,
-    routes: [
-      {
-        path: '/new',
-        component: lazy(() => import("./views/profile/ProfileNewView"))
-      }
-    ]
+    component: lazy(() => import("src/views/auth/profileNewView"))
   },
   {
     path: '*',
@@ -52,13 +55,18 @@ const routes = [
     layout: MainLayout,
     routes: [
       {
-        path: '/demo',
-        component: lazy(() => import("./views/demo"))
+        exact: true,
+        path: '/',
+        component: lazy(() => import("src/views/homeView"))
       },
       {
-        path: '/',
-        component: lazy(() => import("./views/homeView"))
+        exact: true,
+        path: '/demo',
+        component: lazy(() => import("src/views/demo"))
       },
+      {
+        component: () => <Redirect to="/404" />
+      }
     ]
   },
 ]
