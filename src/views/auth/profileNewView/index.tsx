@@ -1,8 +1,10 @@
 import styles from "./index.module.scss"
-import { FormControlLabel, Radio, RadioGroup, TextField } from "@mui/material";
+import { Button, FormControlLabel, IconButton, Input, Radio, RadioGroup, TextField } from "@mui/material";
+import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import CountrySelect from "src/components/CountrySelect";
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
 import { useState } from "react";
+import UserAvatar from "src/components/Avatar";
 
 const ProfileNewView = () => {
   const [date, setDate] = useState<Date | null>(
@@ -15,7 +17,16 @@ const ProfileNewView = () => {
 
   return (
     <div className={styles.root}>
-      <h2>アカウント新規登録</h2>
+      
+      <div className={styles.avatar}>
+        <UserAvatar sx={{width: 76, height: 76, display: "inlineFlex"}}/>
+        <label htmlFor="icon-button-file" className={styles.avatarEdit}>
+          <input accept="image/*" id="icon-button-file" type="file" hidden/>
+          <IconButton color="primary" aria-label="upload picture" component="span">
+            <PhotoCameraIcon sx={{ color: "white" }} />
+          </IconButton>
+        </label>
+      </div>
 
       <label className={styles.subtitle}>ユーザーネーム</label>
       <TextField
@@ -46,7 +57,10 @@ const ProfileNewView = () => {
         onChange={handleChangeDate}
         renderInput={(params) => <TextField variant="standard" placeholder="2000/01/01" fullWidth {...params} />}
       />
-
+      
+      <Button variant="contained" className={styles.btn} disabled>
+        保存する
+      </Button> 
     </div>
   );
 };
