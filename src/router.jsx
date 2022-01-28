@@ -13,7 +13,6 @@ export const renderRoutes = (routes = []) => (
           const Guard = route.guard || Fragment;
           const Layout = route.layout || Fragment;
           const Component = route.component;
-          console.log(route);
 
           return (
             <Route

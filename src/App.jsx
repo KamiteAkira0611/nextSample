@@ -1,3 +1,6 @@
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import jaLocale from "date-fns/locale/ja";
+import DateAdapter from '@mui/lab/AdapterDateFns';
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/system';
 import { BrowserRouter } from 'react-router-dom';
@@ -16,19 +19,24 @@ const theme = createAppTheme(config)
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <SnackbarProvider
-        dense
-        maxSnack={3}
+      <LocalizationProvider
+        dateAdapter={DateAdapter}
+        locale={jaLocale}
       >
-        <BrowserRouter>
-          <AuthProvider>
-            <GlobalStyles/>
-            <CssBaseline />
-            <GoogleAnalytics />
-            {renderRoutes(routes)}
-          </AuthProvider>
-        </BrowserRouter>
-      </SnackbarProvider>
+        <SnackbarProvider
+          dense
+          maxSnack={3}
+          >
+          <BrowserRouter>
+            <AuthProvider>
+              <GlobalStyles/>
+              <CssBaseline />
+              <GoogleAnalytics />
+              {renderRoutes(routes)}
+            </AuthProvider>
+          </BrowserRouter>
+        </SnackbarProvider>
+      </LocalizationProvider>
     </ThemeProvider>
   );
 }

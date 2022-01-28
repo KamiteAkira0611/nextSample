@@ -1,6 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
-import React from 'react';
 import LoadingScreen from './LoadingScreen';
 
 type Props = {

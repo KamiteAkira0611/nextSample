@@ -1,0 +1,30 @@
+.root{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 420px;
+  width: 100%;
+  padding: 40px;
+  background-color: #1F1F1FE5;
+  height: 100%;
+  max-height: 500px;
+  text-align: center;
+
+  .subtitle{
+    font-size: 14px;
+    font-weight: 700;
+    display: block;
+    text-align: left;
+    margin: 25px 0 5px;
+  }
+
+  .radio{
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    span{
+      font-size: 14px;
+    }
+  }
+}

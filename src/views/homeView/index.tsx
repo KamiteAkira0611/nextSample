@@ -12,7 +12,7 @@ const HomeView = () => {
   return (
     <div>
       <div className={classes.hoge}>samansa</div>
-      <Demo/>
+      <Demo />
     </div>
   )
 };
