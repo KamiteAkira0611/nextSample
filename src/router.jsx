@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import AuthGuard from './components/AuthGuard';
 import LoadingScreen from './components/LoadingScreen';
 import MainLayout from './layouts/MainLayout';
+import AuthLayout from './layouts/AuthLayout';
 
 export const renderRoutes = (routes = []) => (
   <Suspense fallback={<LoadingScreen/>}>
@@ -36,33 +37,30 @@ export const renderRoutes = (routes = []) => (
 
 const routes = [
   {
+    path: '/auth',
+    layout: AuthLayout,
+    routes: [
+      {
+        path: '/new',
+        component: lazy(() => import("./views/profile/ProfileNewView"))
+      }
+    ]
+  },
+  {
     path: '*',
     guard: AuthGuard,
     layout: MainLayout,
     routes: [
       {
-        exact: true,
         path: '/demo',
         component: lazy(() => import("./views/demo"))
       },
       {
-        exact: true,
         path: '/',
         component: lazy(() => import("./views/homeView"))
       },
     ]
   },
-  // {
-  //   path: '*',
-  //   // layout: MainLayout,
-  //   routes: [
-  //     {
-  //       exact: true,
-  //       path: '/',
-  //       component: import("./views/homeView")
-  //     },
-  //   ]
-  // }
 ]
 
 export default routes;
