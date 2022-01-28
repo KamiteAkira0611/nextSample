@@ -1,6 +1,6 @@
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/system';
-import { BrowserRouter, Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { SnackbarProvider } from 'notistack';
 import GoogleAnalytics from './components/GoogleAnalytics';
 import { createAppTheme } from './packages/mui/theme';
